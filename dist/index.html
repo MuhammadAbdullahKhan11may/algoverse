@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AlgoVerse - an interactive data structures and algorithms visualizer." />
+  <title>AlgoVerse — Interactive DSA Lab</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23070a12'/%3E%3Cpath d='M14 46 29 16h7l14 30h-9l-3-7H26l-3 7Zm15-15h6l-3-8Z' fill='%2387f7cf'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="AlgoVerse home"><span class="brand-mark">A</span><span>AlgoVerse</span></a>
+    <nav class="module-nav" aria-label="Data structure modules">
+      <button class="nav-item active" data-module="array">Array</button>
+      <button class="nav-item" data-module="linked">Linked List</button>
+      <button class="nav-item" data-module="stack">Stack</button>
+      <button class="nav-item" data-module="queue">Queue</button>
+      <button class="nav-item" data-module="hash">Hashing</button>
+      <button class="nav-item" data-module="bst">BST</button>
+      <button class="nav-item" data-module="avl">AVL Tree</button>
+    </nav>
+    <div class="header-actions">
+      <span class="progress-chip"><span id="progressCount">1</span>/7 explored</span>
+      <button id="menuBtn" class="icon-btn menu-btn" aria-label="Open module menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro-strip">
+      <div><span class="eyebrow">Interactive DSA laboratory</span><h1>Learn by making data <em>move.</em></h1></div>
+      <p id="moduleIntro">Build, sort, search, insert, and delete while every comparison becomes visible.</p>
+    </section>
+
+    <section class="workspace">
+      <aside class="control-panel panel">
+        <div class="panel-heading"><span>01</span><div><p>Experiment</p><h2 id="moduleTitle">Array lab</h2></div></div>
+        <label class="field-label" for="valuesInput">Dataset</label>
+        <div class="input-row">
+          <input id="valuesInput" value="42, 17, 8, 31, 25, 4" autocomplete="off" aria-describedby="inputHint" />
+          <button id="applyBtn" class="square-btn" aria-label="Apply values">↵</button>
+        </div>
+        <p class="hint" id="inputHint">Comma-separated numbers · maximum 10</p>
+        <div class="quick-row"><button id="randomBtn" class="ghost-btn">Randomize</button><button id="clearBtn" class="ghost-btn">Clear</button></div>
+
+        <div class="divider"></div>
+        <p class="field-label">Operation</p>
+        <div id="operationTabs" class="operation-tabs"></div>
+        <label class="field-label" for="algorithmSelect">Method</label>
+        <select id="algorithmSelect"></select>
+        <div id="secondaryInputs" class="secondary-inputs"></div>
+        <button id="runBtn" class="run-btn"><span>Run visualization</span><span>→</span></button>
+        <p id="validationMsg" class="validation" role="alert"></p>
+      </aside>
+
+      <section class="visual-panel panel">
+        <div class="visual-head">
+          <div><span class="live-dot"></span><span id="statusLabel">Ready to run</span></div>
+          <div class="view-actions"><button id="fitBtn" class="icon-btn" title="Fit visualization" aria-label="Fit visualization">⌗</button><button id="resetBtn" class="icon-btn" title="Reset" aria-label="Reset visualization">↻</button></div>
+        </div>
+        <div id="visualStage" class="visual-stage" aria-live="polite"></div>
+        <div class="playback">
+          <button id="prevBtn" class="play-btn" aria-label="Previous step">|‹</button>
+          <button id="playBtn" class="play-main" aria-label="Play or pause">▶</button>
+          <button id="nextBtn" class="play-btn" aria-label="Next step">›|</button>
+          <div class="timeline-wrap"><input id="timeline" type="range" min="0" max="0" value="0" aria-label="Animation step" /><div class="timeline-meta"><span id="stepCounter">Step 0 / 0</span><span id="stepCaption">Create an experiment to begin</span></div></div>
+          <label class="speed-control">Speed<select id="speedSelect"><option value="1100">0.5×</option><option value="650" selected>1×</option><option value="320">2×</option></select></label>
+        </div>
+      </section>
+
+      <aside class="learning-panel panel">
+        <div class="panel-heading"><span>02</span><div><p>Understand</p><h2>What happens?</h2></div></div>
+        <div class="explanation-card">
+          <span class="mini-label">Current step</span>
+          <h3 id="stepTitle">Ready when you are</h3>
+          <p id="stepExplanation">Choose an operation, enter values, and run the visualization. You can pause or move one step at a time.</p>
+          <code id="codeLine">state = ready</code>
+        </div>
+        <div class="complexity-grid">
+          <div><span>Time</span><strong id="timeComplexity">—</strong></div>
+          <div><span>Space</span><strong id="spaceComplexity">—</strong></div>
+        </div>
+        <div class="stats-card"><div class="stats-head"><span>Live statistics</span><button id="infoBtn" class="tiny-btn" aria-label="About statistics">i</button></div><div id="statsGrid" class="stats-grid"></div></div>
+        <div class="principle"><span id="principleIcon">↔</span><div><strong id="principleTitle">Direct access</strong><p id="principleText">Arrays store values in contiguous positions, making indexed access immediate.</p></div></div>
+      </aside>
+    </section>
+
+    <section class="concept-row" aria-label="Module learning summary">
+      <div><span class="eyebrow">Why this matters</span><h2 id="conceptTitle">See every comparison, not just the answer.</h2></div>
+      <p id="conceptText">AlgoVerse turns hidden algorithm state into movement, color, and plain-language decisions—so you can explain what the code is doing.</p>
+      <div class="shortcuts"><span><kbd>Space</kbd> Play</span><span><kbd>←</kbd><kbd>→</kbd> Step</span><span><kbd>R</kbd> Reset</span></div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status"></div>
+  <div id="infoModal" class="modal" aria-hidden="true"><div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button id="closeModal" class="modal-close" aria-label="Close">×</button><span class="eyebrow">How to read it</span><h2 id="modalTitle">Live statistics</h2><p>Counts update at each animation frame. They reflect the selected example—not a benchmark—and help connect actual work to Big-O growth.</p><button id="modalOkay" class="run-btn">Got it</button></div></div>
+  <script src="app.js"></script>
+</body>
+</html>
