@@ -20,5 +20,3 @@ An interactive platform that helps learners understand data structures and algor
 [![Demo](https://img.shields.io/badge/%E2%96%B2_DEMO-22c55e?style=for-the-badge&labelColor=000000&color=22c55e)](https://muhammadabdullahkhan11may.github.io/algoverse/) [![Repository](https://img.shields.io/badge/%E2%86%97_REPOSITORY-22c55e?style=for-the-badge&labelColor=000000&color=22c55e)](https://github.com/MuhammadAbdullahKhan11may/algoverse)
 
 ---
-
-## 🔗 More Projects
