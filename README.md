@@ -1,29 +1,24 @@
-# AlgoVerse
+### 🧠 AlgoVerse — Interactive DSA Learning Platform
 
-An advanced, fully frontend DSA learning experience created for DecodeLabs Frontend Project 3. It demonstrates buttons and toggles, event listeners, application state, dynamic DOM updates, keyboard interaction, responsive design, animation, and `localStorage` progress.
+[#-algoverse--interactive-dsa-learning-platform](#-algoverse--interactive-dsa-learning-platform)
 
-## Run locally
+An interactive platform that helps learners understand data structures and algorithms through visualizations and hands-on interactions, built as a fully frontend application.
 
-No installation is required.
+- **Arrays & Linked Lists** — sort, search, insert, delete, and traversal
+- **Stacks & Queues** — push/pop/peek and enqueue/dequeue operations
+- **Hashing** — bucket routing and collision visualization
+- **BSTs & AVL Trees** — animated insertion paths, balance-factor checks, and rotations
+- **Step-by-step animations** with keyboard controls (`Space`, `←` / `→`, `R`)
+- **Progress persistence** using `localStorage`
 
-1. Open the `dist` folder in VS Code.
-2. Install the **Live Server** extension if you do not already have it.
-3. Right-click `index.html` and choose **Open with Live Server**.
+| Layer       | Technology              |
+| ----------- | ----------------------- |
+| 🌐 Frontend | HTML5, CSS3, JavaScript |
+| 💾 Storage  | localStorage            |
+| ☁️ Hosting  | GitHub Pages            |
 
-You can also double-click `dist/index.html`; Live Server is recommended.
+[![Demo](https://img.shields.io/badge/%E2%96%B2_DEMO-22c55e?style=for-the-badge&labelColor=000000&color=22c55e)](https://muhammadabdullahkhan11may.github.io/algoverse/) [![Repository](https://img.shields.io/badge/%E2%86%97_REPOSITORY-22c55e?style=for-the-badge&labelColor=000000&color=22c55e)](https://github.com/MuhammadAbdullahKhan11may/algoverse)
 
-## Modules
+---
 
-- Array: sort, search, insert, and delete visualizations
-- Linked List: traversal, search, insertion, and deletion
-- Stack: push, pop, peek, size, empty, and clear
-- Queue: enqueue, dequeue, front, size, empty, and clear
-- Hashing: bucket routing and collision visualization
-- BST: animated insertion paths
-- AVL: insertion, balance-factor checks, and rotation demonstrations
-
-## Keyboard controls
-
-- `Space`: play/pause
-- `←` / `→`: previous/next step
-- `R`: reset animation
+## 🔗 More Projects
